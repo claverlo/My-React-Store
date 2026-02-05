@@ -1,4 +1,4 @@
-import Product from "../components/Products"; // Assignment 2 start
+import Product from "../components/Products"; // Assignment  start
 
 import "./Catalog.css";
 import DataService from "../services/dataService";
