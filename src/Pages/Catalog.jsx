@@ -1,4 +1,5 @@
-import Product from "../components/Products";
+import Product from "../components/Products"; // Assignment 2 start
+
 import "./Catalog.css";
 import DataService from "../services/dataService";
 import { useEffect, useState } from "react";
