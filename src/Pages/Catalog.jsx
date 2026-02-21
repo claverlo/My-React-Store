@@ -1,75 +1,76 @@
-import Product from "../components/Products"; // Assignment start
-import "./Catalog.css";
+import Product from "../components/Products";
 import DataService from "../services/dataService";
 import { useEffect, useState } from "react";
 
 function Catalog() {
-    const [products, setProducts] = useState([]);
-    const [categories, setCategories] = useState([]);
-    const [prodsToDisplay, setProdsToDisplay] = useState([]);
+  const [products, setProducts] = useState([]);
+  const [categories, setCategories] = useState([]);
+  const [prodsToDisplay, setProdsToDisplay] = useState([]);
 
-    useEffect(() => {
-        console.log("component loaded!");
-        loadCatalog();
-    }, []);
+  useEffect(() => {
+    loadCatalog();
+  }, []);
 
-    function loadCatalog() {
-        let service = new DataService();
-        let data = service.getProducts();
+  function loadCatalog() {
+    const service = new DataService();
+    const data = service.getProducts();
 
-        setProducts(data);
-        setProdsToDisplay(data);
+    setProducts(data);
+    setProdsToDisplay(data);
 
-        let cats = ["PC", "Keyboard", "Mouse"];
-        setCategories(cats);
-    }
+    setCategories(["PC", "Keyboard", "Mouse"]);
+  }
 
-    function clearFilter() {
-        setProdsToDisplay(products);
-    }
+  function clearFilter() {
+    setProdsToDisplay(products);
+  }
 
-    function filter(category) {
-        let list = products.filter(
-            prod => prod.category === category
-        );
-        setProdsToDisplay(list);
-    }
-
-    return (
-        <div className="catalog">
-            <h1>Check our amazing products</h1>
-
-            <div className="filters">
-                <button
-                    onClick={clearFilter}
-                    className="btn btn-dark btn-filter"
-                >
-                    All Products
-                </button>
-            </div>
-
-            <div className="category-buttons">
-                {categories.map(cat => (
-                    <button
-                        key={cat}
-                        onClick={() => filter(cat)}
-                        className="btn btn-primary btn-filter"
-                    >
-                        {cat}
-                    </button>
-                ))}
-            </div>
-
-            <div className="product-list">
-                {prodsToDisplay.map((prod, index) => (
-                    <Product
-                        key={prod._id || prod.id || index}
-                        data={prod}
-                    />
-                ))}
-            </div>
-        </div>
+  function filter(category) {
+    const list = products.filter(
+      (prod) => prod.category === category
     );
+    setProdsToDisplay(list);
+  }
+
+  return (
+    <div className="catalog text-center pb-5 bg-light">
+      <h1>Check out our amazing products</h1>
+
+      <div className="filters d-flex justify-content-center gap-2 align-items-center flex-nowrap overflow-auto">
+        <button
+          onClick={clearFilter}
+          className="btn btn-primary"
+        >
+          All Products
+        </button>
+
+        {categories.map((cat) => (
+          <button
+            key={cat}
+            onClick={() => filter(cat)}
+            className="btn btn-primary"
+          >
+            {cat}
+          </button>
+        ))}
+      </div>
+
+      <div className="container-fluid mt-4 px-5">
+        <div className="row">
+          {prodsToDisplay.map((prod, index) => (
+            <div
+              key={prod._id || prod.id || index}
+              className="col-12 col-sm-6 col-lg-3 mb-4 d-flex"
+            >
+              <div className="w-100 bg-primary bg-gradient text-white rounded p-3 shadow">
+                <Product data={prod} />
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
 }
 
 export default Catalog;
