@@ -17,7 +17,7 @@ function Product(props) {
    return (
  <div
   className="products card h-100 w-100 shadow-sm border-0"
-  style={{ backgroundColor: "#f3e8ff" }}
+
 >
     <div className="card-body d-flex flex-column">
 

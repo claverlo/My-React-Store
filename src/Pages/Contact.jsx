@@ -1,38 +1,47 @@
 function Contact() {
-  return (
-    <div
-      className="min-vh-100"
-      style={{ backgroundColor: "#f3e8ff" }}
-    >
-      <div className="container text-center py-5">
+    return (
+        <div
+            style={{
+                minHeight: "100vh",
+                backgroundImage: `
+        linear-gradient(rgba(255,255,255,0.7), rgba(255,255,255,0.7)),
+        url('https://static.vecteezy.com/system/resources/previews/022/252/108/non_2x/portrait-of-a-male-gamer-playing-online-games-on-a-computer-cyber-sport-concept-generative-ai-free-photo.jpg')
+        `,
+                backgroundSize: "cover",
+                backgroundPosition: "center",
+                paddingTop: "40px",
+                paddingBottom: "40px"
+            }}
+        >
+            <div className="container text-center py-5">
 
-        <h1 className="display-3 fw-bold mb-5">
-          Contact Us
-        </h1>
+                <h1 className="display-3 fw-bold mb-5">
+                    Contact Us
+                </h1>
 
-        <div className="fs-4">
+                <div className="fs-4 fw-bold">
 
-          <p className="mb-3">
-            <strong>Name:</strong> Leomar Claveria
-          </p>
+                    <p className="mb-3">
+                        Name: Leomar Claveria
+                    </p>
 
-          <p className="mb-3">
-            <strong>Phone:</strong> 1-800-555-1234
-          </p>
+                    <p className="mb-3">
+                        Phone: 1-800-555-1234
+                    </p>
 
-          <p className="mb-3">
-            <strong>Email:</strong> support@primegamingsupply.com
-          </p>
+                    <p className="mb-3">
+                        Email: support@primegamingsupply.com
+                    </p>
 
-          <p className="mb-3">
-            <strong>Address:</strong> 123 Gaming Blvd, Suite 400, San Diego, CA 92101
-          </p>
+                    <p className="mb-3">
+                        Address: 123 Gaming Blvd, Suite 400, San Diego, CA 92101
+                    </p>
 
+                </div>
+
+            </div>
         </div>
-
-      </div>
-    </div>
-  );
+    );
 }
 
 export default Contact;

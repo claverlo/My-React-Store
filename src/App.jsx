@@ -1,10 +1,10 @@
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
-import NavBar from './components/NavBar';
+import NavBar from './components/Navbar';
 import Footer from './components/Footer';
 import Catalog from './Pages/Catalog'
 import About from "./Pages/About";
 import Home from "./Pages/Home";
-import Admin from "./Pages/admin";
+import Admin from "./Pages/Admin";
 import Contact from "./Pages/Contact";
 
 
