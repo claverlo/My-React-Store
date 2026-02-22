@@ -1,19 +1,16 @@
 function Contact() {
     return (
-        <div
-            style={{
-                minHeight: "100vh",
-                backgroundImage: `
-        linear-gradient(rgba(255,255,255,0.7), rgba(255,255,255,0.7)),
-        url('https://static.vecteezy.com/system/resources/previews/022/252/108/non_2x/portrait-of-a-male-gamer-playing-online-games-on-a-computer-cyber-sport-concept-generative-ai-free-photo.jpg')
-        `,
-                backgroundSize: "cover",
-                backgroundPosition: "center",
-                paddingTop: "40px",
-                paddingBottom: "40px"
-            }}
-        >
-            <div className="container text-center py-5">
+        <div className="position-relative min-vh-100 pt-5 pb-5">
+
+            <img
+                src="https://static.vecteezy.com/system/resources/previews/022/252/108/non_2x/portrait-of-a-male-gamer-playing-online-games-on-a-computer-cyber-sport-concept-generative-ai-free-photo.jpg"
+                className="position-absolute top-0 start-0 w-100 h-100 object-fit-cover"
+                alt=""
+            />
+
+            <div className="position-absolute top-0 start-0 w-100 h-100 bg-white opacity-75"></div>
+
+            <div className="container position-relative text-center py-5">
 
                 <h1 className="display-3 fw-bold mb-5">
                     Contact Us
@@ -40,6 +37,7 @@ function Contact() {
                 </div>
 
             </div>
+
         </div>
     );
 }

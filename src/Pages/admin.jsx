@@ -14,9 +14,6 @@ function Admin() {
     const [products, setProducts] = useState([])
 
     function saveCoupon() {
-        console.log(couponCode)
-        console.log(couponDiscount)
-
         const newCoupon = {
             code: couponCode,
             discount: couponDiscount
@@ -28,11 +25,6 @@ function Admin() {
     }
 
     function saveProduct() {
-        console.log(title)
-        console.log(category)
-        console.log(image)
-        console.log(price)
-
         const newProduct = {
             title: title,
             category: category,
@@ -49,15 +41,25 @@ function Admin() {
     }
 
     return (
-        <div className="container">
-            <h1 className="text-center">Store Administration</h1>
+        <div className="position-relative min-vh-50 pt-5 pb-5">
 
-            <div className="d-flex gap-4">
+            <img
+                src="https://static.vecteezy.com/system/resources/previews/022/252/108/non_2x/portrait-of-a-male-gamer-playing-online-games-on-a-computer-cyber-sport-concept-generative-ai-free-photo.jpg"
+                className="position-absolute top-0 start-0 w-100 h-100 object-fit-cover"
+                alt=""
+            />
 
-                <section className="w-50 border rounded-3 p-4">
-                    <h2>Add Products</h2>
+            
+            <div className="position-absolute top-0 start-0 w-100 h-100 bg-white opacity-75"></div>
 
-                    <div>
+            <div className="container-fluid position-relative">
+
+                <h1 className="text-center">Store Administration</h1>
+
+                <div className="d-flex gap-4">
+
+                    <section className="w-50 border border-3 border-primary rounded-3 p-4">
+                        <h2>Add Products</h2>
 
                         <div className="mb-4">
                             <label className="form-label">Title</label>
@@ -84,7 +86,6 @@ function Admin() {
                             <input
                                 className="form-control"
                                 type="text"
-                                placeholder=""
                                 value={image}
                                 onChange={(event) => setImage(event.target.value)}
                             />
@@ -104,26 +105,20 @@ function Admin() {
                             <button onClick={saveProduct}>Save Product</button>
                         </div>
 
-                    </div>
+                        <h4 className="mt-4">Products List</h4>
 
-                    <h4 className="mt-4">Products List</h4>
-
-                    <ul>
-                        {
-                            products.map((product, index) => (
+                        <ul>
+                            {products.map((product, index) => (
                                 <li key={index}>
                                     {product.title} - ${product.price}
                                 </li>
-                            ))
-                        }
-                    </ul>
+                            ))}
+                        </ul>
+                    </section>
 
-                </section>
+                    <section className="w-50 border border-3 border-primary rounded-3 p-4">
+                        <h2 className="text-center">Add Coupons</h2>
 
-                <section className="w-50 border rounded-3 p-4">
-                    <h2 className="text-center">Add Coupons</h2>
-
-                    <div>
                         <div className="mb-4">
                             <label className="form-label">Code</label>
                             <input
@@ -147,25 +142,23 @@ function Admin() {
                         <div className="text-center">
                             <button onClick={saveCoupon}>Save Coupon</button>
                         </div>
-                    </div>
 
-                    <h4>Coupon List</h4>
+                        <h4>Coupon List</h4>
 
-                    <ul>
-                        {
-                            coupons.map(coupon => (
+                        <ul>
+                            {coupons.map(coupon => (
                                 <li key={coupon.code}>
                                     {coupon.code} - {coupon.discount}%
                                 </li>
-                            ))
-                        }
-                    </ul>
+                            ))}
+                        </ul>
+                    </section>
 
-                </section>
+                </div>
 
             </div>
         </div>
     )
 }
 
-export default Admin;
+export default Admin

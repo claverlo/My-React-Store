@@ -16,7 +16,7 @@ function Navbar() {
         <ul className="nav justify-content-center">
 
           <li className="nav-item fw-bold text-dark mb-3">
-            <NavLink to="/home" className="nav-link">Home</NavLink>
+            <NavLink to="/" className="nav-link">Home</NavLink>
           </li>
 
           <li className="nav-item fw-bold text-dark mb-3">

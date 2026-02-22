@@ -4,7 +4,7 @@ import Footer from './components/Footer';
 import Catalog from './Pages/Catalog'
 import About from "./Pages/About";
 import Home from "./Pages/Home";
-import Admin from "./Pages/Admin";
+import Admin from "./Pages/admin";
 import Contact from "./Pages/Contact";
 import NotFound from "./Pages/Notfound";
 import GlobalProvider from './State/globalProvider'
