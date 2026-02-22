@@ -8,10 +8,8 @@ function Home() {
         alt=""
       />
 
-      <div className="position-absolute top-0 start-0 w-100 h-100 bg-white opacity-75"></div>
-
-      <h1 className="display-3 fw-bold position-relative text-dark mt-4">
-        Welcome Gamers 
+      <h1 className="display-3 fw-bold position-relative text-white mt-4">
+        Welcome Gamers
       </h1>
 
     </div>

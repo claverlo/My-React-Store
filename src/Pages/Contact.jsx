@@ -1,3 +1,5 @@
+import { IconPhoneCall, IconMailFast, IconAddressBook } from '@tabler/icons-react';
+
 function Contact() {
     return (
         <div className="position-relative min-vh-100 pt-5 pb-5">
@@ -19,18 +21,21 @@ function Contact() {
                 <div className="fs-4 fw-bold">
 
                     <p className="mb-3">
-                        Name: Leomar Claveria
+                        Owner: Leomar Claveria
                     </p>
 
                     <p className="mb-3">
+                        <IconPhoneCall stroke={2} size={20} className="me-2" />
                         Phone: 1-800-555-1234
                     </p>
 
                     <p className="mb-3">
+                        <IconMailFast stroke={2} size={20} className="me-2" />
                         Email: support@primegamingsupply.com
                     </p>
 
                     <p className="mb-3">
+                        <IconAddressBook stroke={2} size={20} className="me-2" />
                         Address: 123 Gaming Blvd, Suite 400, San Diego, CA 92101
                     </p>
 
