@@ -72,7 +72,7 @@ const catalog = [
         image: mouse2,
         id: 8
     },
- 
+
 
 
 
