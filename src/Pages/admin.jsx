@@ -41,7 +41,7 @@ function Admin() {
     }
 
     return (
-        <div className="position-relative min-vh-50 pt-5 pb-5">
+        <div className="position-relative min-vh-50 pt-5 pb-0">
 
             <img
                 src="https://static.vecteezy.com/system/resources/previews/022/252/108/non_2x/portrait-of-a-male-gamer-playing-online-games-on-a-computer-cyber-sport-concept-generative-ai-free-photo.jpg"
@@ -56,10 +56,10 @@ function Admin() {
 
                 <h1 className="text-center">Store Administration</h1>
 
-                <div className="d-flex gap-4">
+                <div className="d-flex gap-0">
 
-                    <section className="w-50 border border-3 border-primary rounded-3 p-4">
-                        <h2>Add Products</h2>
+                    <section className="w-50 border border-5 border-primary  p-5">
+                        <h2 className="text-center">Add Products</h2>
 
                         <div className="mb-4">
                             <label className="form-label">Title</label>
@@ -116,7 +116,7 @@ function Admin() {
                         </ul>
                     </section>
 
-                    <section className="w-50 border border-3 border-primary rounded-3 p-4">
+                    <section className="w-50 border border-5 border-primary p-5">
                         <h2 className="text-center">Add Coupons</h2>
 
                         <div className="mb-4">
