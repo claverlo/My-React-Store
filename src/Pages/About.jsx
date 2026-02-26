@@ -17,16 +17,25 @@ function About() {
 
                 <div className="bg-white p-5 rounded shadow-lg text-center" style={{ maxWidth: "800px" }}>
                     
-                    <h1 className="fw-bolder display-4 mb-4">
+                    <h1 className="display-4 fw-bold mb-4">
                         About Prime Gaming Supply
                     </h1>
 
-                    <p className="fw-bolder display-6 mb-4">
-                        Prime Gaming Supply was created with one goal in mind: delivering high quality gaming accessories that combine performance, style, and reliability. In today’s competitive gaming environment, every detail matters. From the precision of your mouse to the comfort of your headset, the right equipment can completely change your experience. We believe gamers deserve tools that enhance their performance and give them confidence every time they sit down to play.
+                    <div className="fs-5 fw-semibold">
 
-                        Prime Gaming Supply is more than just an online store. It represents innovation, modern web development, and a commitment to user focused design.
-                    </p>
+                        <p className="mb-3">
+                            Prime Gaming Supply was created with one goal in mind: delivering high quality gaming accessories that combine performance, style, and reliability.
+                        </p>
 
+                        <p className="mb-0">
+                            In today’s competitive gaming environment, every detail matters. From the precision of your mouse to the comfort of your headset, the right equipment can completely change your experience. We believe gamers deserve tools that enhance their performance and give them confidence every time they sit down to play.
+                        </p>
+
+                        <p className="mt-3 mb-0">
+                            Prime Gaming Supply is more than just an online store. It represents innovation, modern web development, and a commitment to user focused design.
+                        </p>
+
+                    </div>
 
                 </div>
 
