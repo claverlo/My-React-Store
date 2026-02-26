@@ -67,7 +67,7 @@ function Admin() {
                 alt=""
             />
 
-             <div className="position-absolute top-0 start-0 w-100 h-100 bg-dark opacity-50"></div>
+            <div className="position-absolute top-0 start-0 w-100 h-100 bg-dark opacity-50"></div>
 
             <div className="container-fluid position-relative">
 
@@ -134,7 +134,7 @@ function Admin() {
                             </button>
                         </div>
 
-                    
+
 
                         <div className="row mt-3">
                             {products.map((product, index) => (
