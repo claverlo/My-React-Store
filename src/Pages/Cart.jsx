@@ -22,7 +22,7 @@ function Cart() {
           className="bg-white border rounded mb-3 p-4 d-flex justify-content-between align-items-center"
         >
 
-          {/* LEFT SIDE */}
+       
           <div className="d-flex align-items-center">
             <img
               src={product.image}
@@ -34,7 +34,6 @@ function Cart() {
             <h5 className="mb-0">{product.title}</h5>
           </div>
 
-          {/* RIGHT SIDE */}
           <div className="d-flex align-items-end gap-4">
 
             <div>
@@ -53,7 +52,7 @@ function Cart() {
             </div>
 
             <div>
-              <label className="form-label">Price</label>
+              <label className="form-label">Price Per Item</label>
               <input
                 type="text"
                 value={`$${Number(product.price).toFixed(2)}`}
