@@ -39,16 +39,13 @@ return (
       alt=""
     />
 
-    <div className="position-absolute top-0 start-0 w-100 h-100 bg-white opacity-75"></div>
+    <div className="position-absolute top-0 start-0 w-100 h-100 bg-white opacity-50"></div>
 
     <div className="container-fluid position-relative">
 
-      <h1 className="text-center mb-4">
-        Check out our amazing products
-      </h1>
-
+    
       <div className="d-flex justify-content-center gap-2 align-items-center flex-nowrap overflow-auto mb-4">
-        <button onClick={clearFilter} className="btn btn-primary">
+        <button onClick={clearFilter} className="btn btn-dark">
           All Products
         </button>
 
@@ -56,7 +53,7 @@ return (
           <button
             key={cat}
             onClick={() => filter(cat)}
-            className="btn btn-primary"
+            className="btn btn-dark"
           >
             {cat}
           </button>
@@ -69,7 +66,7 @@ return (
             key={prod._id || prod.id || index}
             className="col-12 col-sm-6 col-lg-3 mb-4 d-flex"
           >
-            <div className="w-100 bg-primary bg-gradient text-white rounded p-3 shadow">
+            <div className="w-100 bg-dark bg-gradient text-white rounded p-1 shadow">
               <Product data={prod} />
             </div>
           </div>

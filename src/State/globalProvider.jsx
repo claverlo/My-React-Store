@@ -2,26 +2,65 @@ import { useState } from 'react'
 import GlobalContext from './globalContext'
 
 function GlobalProvider(props) {
-    // const [state, setState] = useState(initialValue)
-    const [user, setUser] = useState({ name: 'Leomar', id: 64 }) // Create a state variable for the user, with default username and ID
-    const [cart, setCart] = useState([]) // Create a state variable for the cart, initially an empty array.
+    const [user, setUser] = useState({ name: 'Leomar', id: 64 })
+    const [cart, setCart] = useState([])
 
     function addProductToCart(product) {
-        console.log("Add Product to Cart", product)
-        setCart([...cart, product])
+        const existingIndex = cart.findIndex(item => item._id === product._id)
+
+        if (existingIndex !== -1) {
+            const updatedCart = [...cart]
+            updatedCart[existingIndex] = {
+                ...updatedCart[existingIndex],
+                quantity: updatedCart[existingIndex].quantity + product.quantity
+            }
+            setCart(updatedCart)
+        } else {
+            setCart([...cart, product])
+        }
     }
 
     function clearCart() {
         setCart([])
     }
 
-    function removeProductFromCart(productId) { // Remove a product from cart by ID
-        console.log('Removing product with id', productId)
+    function removeProductFromCart(productId) {
+        const index = cart.findIndex(item => item._id === productId)
+        if (index === -1) return
 
-        const updatedCart = cart.filter(item => item._id !== productId); // filter out the product with the matching ID
-        setCart(updatedCart) // Update the cart state with the filtered list
+        const updatedCart = [...cart]
+        const item = updatedCart[index]
+
+        if (item.quantity > 1) {
+            updatedCart[index] = { ...item, quantity: item.quantity - 1 }
+        } else {
+            updatedCart.splice(index, 1)
+        }
+
+        setCart(updatedCart)
     }
 
+    function deleteProductFromCart(productId) {
+        const updatedCart = cart.filter(item => item._id !== productId)
+        setCart(updatedCart)
+    }
+
+    function setProductQuantity(productId, newQty) {
+        if (!Number.isFinite(newQty)) return
+        if (newQty < 1) {
+            deleteProductFromCart(productId)
+            return
+        }
+
+        const updatedCart = cart.map(item => {
+            if (item._id === productId) {
+                return { ...item, quantity: newQty }
+            }
+            return item
+        })
+
+        setCart(updatedCart)
+    }
 
     return (
         <GlobalContext.Provider value={{
@@ -30,6 +69,8 @@ function GlobalProvider(props) {
             addProductToCart: addProductToCart,
             clearCart: clearCart,
             removeProductFromCart: removeProductFromCart,
+            deleteProductFromCart: deleteProductFromCart,
+            setProductQuantity: setProductQuantity,
         }}>
             {props.children}
         </GlobalContext.Provider>

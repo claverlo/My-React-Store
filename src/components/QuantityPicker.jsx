@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState } from 'react';
 
 function QuantityPicker(props) {
     const [quantity, setQuantity] = useState(1);
@@ -18,17 +18,12 @@ function QuantityPicker(props) {
     }
 
     return (
-        <div style={{ display: "flex", alignItems: "center", justifyContent: "center" }}>
-            <button style={{ marginRight: "12px" }} onClick={handleDecrease}>-</button>
-
-            <label style={{ fontWeight: "bold", margin: "0 6px" }}>
-                {quantity}
-            </label>
-
-            <button style={{ marginLeft: "12px" }} onClick={handleIncrease}>+</button>
+        <div className='d-flex justify-content-center align-items-center gap-2'>
+            <button className="btn-minus btn btn-outline-dark" onClick={handleDecrease} disabled={quantity === 1}>-</button>
+            <label>{quantity}</label>
+            <button className="btn-plus btn btn-outline-dark" onClick={handleIncrease} >+</button>
         </div>
-    );
-
+    )
 }
 
 export default QuantityPicker;

@@ -2,16 +2,6 @@ import { useState } from 'react'
 
 function About() {
 
-    const [isEmailVisible, setIsEmailVisible] = useState(false);
-
-    function showEmail() {
-        setIsEmailVisible(true)
-    }
-
-    function hideEmail() {
-        setIsEmailVisible(false)
-    }
-
     return (
         <div className="position-relative min-vh-100 pt-5 pb-5">
 
@@ -21,25 +11,24 @@ function About() {
                 alt=""
             />
 
-            <div className="position-absolute top-0 start-0 w-100 h-100 bg-white opacity-75"></div>
+            <div className="position-absolute top-0 start-0 w-100 h-100 bg-white opacity-50"></div>
 
-            <div className="container position-relative text-center">
+            <div className="container position-relative d-flex justify-content-center">
 
-                <h1>About Page</h1>
+                <div className="bg-white p-5 rounded shadow-lg text-center" style={{ maxWidth: "800px" }}>
+                    
+                    <h1 className="fw-bolder display-4 mb-4">
+                        About Prime Gaming Supply
+                    </h1>
 
-                {
-                    isEmailVisible
-                        ? <p className='fs-4 text-secondary'>leopac84@icloud.com</p>
-                        : <p>Click the button below to see my email address</p>
-                }
+                    <p className="fw-bolder display-6 mb-4">
+                        Prime Gaming Supply was created with one goal in mind: delivering high quality gaming accessories that combine performance, style, and reliability. In today’s competitive gaming environment, every detail matters. From the precision of your mouse to the comfort of your headset, the right equipment can completely change your experience. We believe gamers deserve tools that enhance their performance and give them confidence every time they sit down to play.
 
-                <button className='btn btn-dark me-4' onClick={showEmail}>
-                    Show Email
-                </button>
+                        Prime Gaming Supply is more than just an online store. It represents innovation, modern web development, and a commitment to user focused design.
+                    </p>
 
-                <button className='btn btn-secondary' onClick={hideEmail}>
-                    Hide Email
-                </button>
+
+                </div>
 
             </div>
         </div>
