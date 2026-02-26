@@ -1,9 +1,10 @@
-
 import QuantityPicker from './QuantityPicker';
-import { useState } from 'react';
+import { useState, useContext } from 'react';
+import GlobalContext from '../State/globalContext';
 
 function Product(props) {
   const [quantity, setQuantity] = useState(1);
+  const globalAdd = useContext(GlobalContext).addProductToCart;
 
   function handleQuantityChange(qty) {
     setQuantity(qty);
@@ -14,11 +15,14 @@ function Product(props) {
     return total.toFixed(2);
   }
 
-  return (
-    <div
-      className="products card h-100 w-100 shadow-sm border-0"
+  function onAdd() {
+    let fixedProduct = { ...props.data };
+    fixedProduct.quantity = quantity;
+    globalAdd(fixedProduct);
+  }
 
-    >
+  return (
+    <div className="products card h-100 w-100 border-0 shadow-sm">
       <div className="card-body d-flex flex-column">
 
         <img
@@ -41,7 +45,14 @@ function Product(props) {
         <div className="mt-auto text-center">
           <QuantityPicker onChange={handleQuantityChange} />
         </div>
-
+        <div className="d-flex justify-content-center">
+          <button
+            className="btn btn-dark w-50 mt-3"
+            onClick={onAdd}
+          >
+            Add
+          </button>
+        </div>
       </div>
     </div>
   );

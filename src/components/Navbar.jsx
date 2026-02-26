@@ -1,46 +1,75 @@
 import { NavLink } from "react-router-dom";
 import { useContext } from "react";
 import GlobalContext from "../State/globalContext";
+import { IconUser, IconShoppingCart } from "@tabler/icons-react";
 
 function Navbar() {
-  const user = useContext(GlobalContext).user;
+  const { user, cart } = useContext(GlobalContext);
 
-  return (
-    <nav className="bg-light py-4">
-      <div className="container text-center">
+  function getTotalItems() {
+    let sum = 0;
+    for (let i = 0; i < cart.length; i++) {
+      sum += cart[i].quantity;
+    }
+    return sum;
+  }
 
-        <h1 className="fw-bold text-dark mb-3">
-          Prime Gaming Supply
-        </h1>
+return (
+  <nav
+    className="py-4"
+    style={{ backgroundColor: "#fdfdfd00" }}
+  >
+    <div className="container-fluid">
+      <h1 className="text-center mt-1 mb-2">
+        <NavLink to="/" style={{ textDecoration: "none" }}>
+          <span className="bg-dark text-white px-5 py-3 rounded-pill shadow-lg fw-bold d-inline-block">
+            Prime Gaming Supply
+            <br />
+            <span className="fs-2 fw-normal">
+              Welcome Gamers
+            </span>
+          </span>
+        </NavLink>
+      </h1>
 
-        <ul className="nav justify-content-center">
+        <div className="d-flex align-items-center justify-content-between">
 
-          <li className="nav-item fw-bold text-dark mb-3">
-            <NavLink to="/" className="nav-link">Home</NavLink>
-          </li>
+          <div className="flex-fill"></div>
 
-          <li className="nav-item fw-bold text-dark mb-3">
-            <NavLink to="/catalog" className="nav-link">Catalog</NavLink>
-          </li>
+          <ul className="nav">
+            <li className="nav-item fw-bold">
+              <NavLink to="/" className="nav-link text-dark fw-bold">Home</NavLink>
+            </li>
+            <li className="nav-item fw-bold">
+              <NavLink to="/catalog" className="nav-link text-dark fw-bold">Catalog</NavLink>
+            </li>
+            <li className="nav-item fw-bold">
+              <NavLink to="/about" className="nav-link text-dark fw-bold">About</NavLink>
+            </li>
+            <li className="nav-item fw-bold">
+              <NavLink to="/contact" className="nav-link text-dark fw-bold">Contact</NavLink>
+            </li>
+            <li className="nav-item fw-bold">
+              <NavLink to="/admin" className="nav-link text-dark fw-bold">Admin</NavLink>
+            </li>
+          </ul>
 
-          <li className="nav-item fw-bold text-dark mb-3">
-            <NavLink to="/about" className="nav-link">About</NavLink>
-          </li>
+          <div className="d-flex align-items-center gap-4">
+            <span className="nav-link text-dark d-flex align-items-center gap-1 fw-bold">
+              <IconUser size={18} />
+              {user.name}
+            </span>
 
-          <li className="nav-item fw-bold text-dark mb-3">
-            <NavLink to="/contact" className="nav-link">Contact</NavLink>
-          </li>
+            <NavLink
+              to="/cart"
+              className="nav-link text-dark d-flex align-items-center gap-1 fw-bold"
+            >
+              <IconShoppingCart size={18} />
+              Cart ({getTotalItems()})
+            </NavLink>
+          </div>
 
-          <li className="nav-item fw-bold text-dark mb-3">
-            <NavLink to="/admin" className="nav-link">Admin</NavLink>
-          </li>
-
-          <li className="nav-item fw-bold text-dark mb-3">
-            <span className="nav-link">{user.name}</span>
-          </li>
-
-        </ul>
-
+        </div>
       </div>
     </nav>
   );
