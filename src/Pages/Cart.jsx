@@ -64,7 +64,7 @@ function Cart() {
             </div>
 
             <div>
-              <label className="form-label">Total</label>
+              <label className="form-label">Total Price</label>
               <input
                 type="text"
                 value={`$${(product.price * product.quantity).toFixed(2)}`}
