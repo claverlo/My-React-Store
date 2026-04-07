@@ -1,6 +1,10 @@
-import { useState } from 'react'
+import { useState, useContext } from 'react'
+import GlobalContext from "../State/globalContext"
+import background from "../Images/admin.jpg"
 
 function Admin() {
+
+    const { addCoupon } = useContext(GlobalContext)
 
     const [couponCode, setCouponCode] = useState('')
     const [couponDiscount, setCouponDiscount] = useState(0)
@@ -15,11 +19,13 @@ function Admin() {
 
     function saveCoupon() {
         const newCoupon = {
-            code: couponCode,
-            discount: couponDiscount
+            code: couponCode.toUpperCase(),
+            percent: Number(couponDiscount)
         }
 
-        setCoupons([...coupons, newCoupon])
+        addCoupon(newCoupon)
+
+        setCoupons([...coupons, { code: newCoupon.code, discount: newCoupon.percent }])
         setCouponCode('')
         setCouponDiscount(0)
     }
@@ -58,180 +64,166 @@ function Admin() {
         setCoupons([])
     }
 
+    const jerseyStyle = {
+        clipPath: "polygon(15% 0%, 85% 0%, 95% 12%, 100% 25%, 100% 45%, 85% 50%, 85% 100%, 15% 100%, 15% 50%, 0% 45%, 0% 25%, 5% 12%)",
+        outline: "3px solid black",
+        borderRadius: "12px",
+        padding: "40px",
+        backgroundColor: "white",
+        overflow: "hidden"
+    }
+
+    const innerStyle = {
+        width: "70%",
+        margin: "0 auto",
+        paddingTop: "20px",
+        paddingBottom: "20px"
+    }
+
     return (
-        <div className="position-relative min-vh-100 pt-5 pb-0">
+        <div className="position-relative min-vh-100 pt-5 pb-5">
 
             <img
-                src="https://static.vecteezy.com/system/resources/previews/022/252/108/non_2x/portrait-of-a-male-gamer-playing-online-games-on-a-computer-cyber-sport-concept-generative-ai-free-photo.jpg"
-                className="position-absolute top-0 start-0 w-100 h-100 object-fit-cover"
+                src={background}
+                className="position-absolute top-0 start-0 w-100 h-100"
+                style={{ objectFit: "cover" }}
                 alt=""
             />
 
-            <div className="position-absolute top-0 start-0 w-100 h-100 bg-dark opacity-50"></div>
-
             <div className="container-fluid position-relative">
-
-                <h1 className="text-center mb-4">
-                    <span className="bg-dark text-white px-4 py-2 rounded-pill">
-                        Store Administration
-                    </span>
-                </h1>
 
                 <div className="d-flex gap-4">
 
+                    <section className="w-50 shadow" style={jerseyStyle}>
+                        <div style={innerStyle}>
+                            <h2 className="mb-4 text-center">Add Products</h2>
 
-                    <section className="w-50 p-5 border border-2 border-dark bg-white rounded shadow-sm">
-                        <h2 className="text-center mb-4">Add Products</h2>
+                            <div className="mb-4">
+                                <label className="form-label">Title</label>
+                                <input className="form-control" value={title} onChange={(e) => setTitle(e.target.value)} />
+                            </div>
 
-                        <div className="mb-4">
-                            <label className="form-label">Title</label>
-                            <input
-                                className="form-control"
-                                type="text"
-                                value={title}
-                                onChange={(event) => setTitle(event.target.value)}
-                            />
+                            <div className="mb-4">
+                                <label className="form-label">Category</label>
+                                <select
+                                    className="form-control"
+                                    value={category}
+                                    onChange={(e) => setCategory(e.target.value)}
+                                >
+                                    <option value="">Select Category</option>
+                                    <option value="Jersey">Jersey</option>
+                                    <option value="Shoes">Shoes</option>
+                                    <option value="Accessories">Accessories</option>
+                                </select>
+                            </div>
+
+                            <div className="mb-4">
+                                <label className="form-label">
+                                    Image <span className="text-secondary">(URL)</span>
+                                </label>
+                                <input
+                                    className="form-control"
+                                    type="text"
+                                    placeholder="https://www.image.com/sample.jpg"
+                                    value={image}
+                                    onChange={(e) => setImage(e.target.value)}
+                                />
+                            </div>
+
+                            <div className="mb-4">
+                                <label className="form-label">Price</label>
+                                <input className="form-control" type="number" value={price} onChange={(e) => setPrice(e.target.value)} />
+                            </div>
+
+                            <div className="d-flex justify-content-center gap-3">
+                                <button onClick={saveProduct} className="btn btn-primary">Save Product</button>
+                                <button onClick={clearAllProducts} className="btn btn-danger">Clear All Products</button>
+                            </div>
+
+                            <div className="mt-4">
+                                {products.map((prod, index) => (
+                                    <div key={index} className="mb-4 p-4 bg-light w-100">
+
+                                        <div className="d-flex flex-column align-items-center position-relative">
+
+                                            <img src={prod.image} style={{ width: "250px", height: "250px", objectFit: "cover" }} />
+
+                                            <div style={{
+                                                position: "absolute",
+                                                bottom: "10px",
+                                                left: "50%",
+                                                transform: "translateX(-50%)",
+                                                background: "black",
+                                                color: "white",
+                                                padding: "5px 10px"
+                                            }}>
+                                                ${prod.price}
+                                            </div>
+
+                                            <button
+                                                className="btn btn-danger position-absolute"
+                                                style={{ bottom: "10px", right: "10px" }}
+                                                onClick={() => deleteProduct(index)}
+                                            >
+                                                Delete
+                                            </button>
+
+                                        </div>
+
+                                    </div>
+                                ))}
+                            </div>
+
                         </div>
+                    </section>
 
-                        <div className="mb-4">
-                            <label className="form-label">Category</label>
-                            <input
-                                className="form-control"
-                                type="text"
-                                value={category}
-                                onChange={(event) => setCategory(event.target.value)}
-                            />
-                        </div>
+                    <section className="w-50 shadow" style={jerseyStyle}>
+                        <div style={innerStyle}>
+                            <h2 className="mb-4 text-center">Add Coupons</h2>
 
-                        <div className="mb-4">
-                            <label className="form-label">Image (URL)</label>
-                            <input
-                                className="form-control"
-                                type="text"
-                                value={image}
-                                onChange={(event) => setImage(event.target.value)}
-                            />
-                        </div>
+                            <div className="mb-4">
+                                <label className="form-label">Code</label>
+                                <input className="form-control" value={couponCode} onChange={(e) => setCouponCode(e.target.value)} />
+                            </div>
 
-                        <div className="mb-4">
-                            <label className="form-label">Price</label>
-                            <input
-                                className="form-control"
-                                type="number"
-                                value={price}
-                                onChange={(event) => setPrice(event.target.value)}
-                            />
-                        </div>
+                            <div className="mb-4">
+                                <label className="form-label">Discount</label>
+                                <input className="form-control" type="number" value={couponDiscount} onChange={(e) => setCouponDiscount(e.target.value)} />
+                            </div>
 
+                            <div className="d-flex justify-content-center gap-3">
+                                <button onClick={saveCoupon} className="btn btn-primary">Save Coupon</button>
+                                <button onClick={clearAllCoupons} className="btn btn-danger">Clear All Coupons</button>
+                            </div>
 
-                        <div className="d-flex justify-content-center gap-3">
-                            <button onClick={saveProduct} className="btn btn-primary">
-                                Save Product
-                            </button>
+                            <div className="mt-4">
+                                {coupons.map((c, index) => (
+                                    <div 
+                                        key={index} 
+                                        className="p-3 mb-3 bg-light text-center position-relative"
+                                    >
 
-                            <button onClick={clearAllProducts} className="btn btn-danger">
-                                Clear All Products
-                            </button>
-                        </div>
+                                        <h4 style={{ fontSize: "1.5rem", fontWeight: "600" }}>
+                                            {c.code}
+                                        </h4>
 
-
-
-                        <div className="row mt-3">
-                            {products.map((product, index) => (
-                                <div className="col-md-4 mb-4" key={index}>
-                                    <div className="card h-100 shadow-sm border position-relative">
+                                        <p style={{ fontSize: "1.5rem" }}>
+                                            {c.discount}%
+                                        </p>
 
                                         <button
-                                            className="btn btn-danger btn-sm position-absolute top-0 end-0 m-2"
-                                            onClick={() => deleteProduct(index)}
+                                            className="btn btn-sm btn-danger position-absolute"
+                                            style={{ top: "10px", right: "10px" }}
+                                            onClick={() => deleteCoupon(index)}
                                         >
                                             Delete
                                         </button>
 
-                                        <img
-                                            src={product.image}
-                                            className="card-img-top img-fluid"
-                                            alt={product.title}
-                                        />
-
-                                        <div className="card-body text-center">
-                                            <div className="mb-2">
-                                                <span className="badge bg-secondary">
-                                                    {product.category}
-                                                </span>
-                                            </div>
-
-                                            <h5 className="card-title">
-                                                {product.title}
-                                            </h5>
-
-                                            <p className="card-text fw-bold">
-                                                ${product.price}
-                                            </p>
-                                        </div>
-
                                     </div>
-                                </div>
-                            ))}
+                                ))}
+                            </div>
+
                         </div>
-                    </section>
-
-
-                    <section className="w-50 p-5 border border-2 border-dark bg-white rounded shadow-sm">
-                        <h2 className="text-center mb-4">Add Coupons</h2>
-
-                        <div className="mb-4">
-                            <label className="form-label">Code</label>
-                            <input
-                                className="form-control"
-                                type="text"
-                                value={couponCode}
-                                onChange={(event) => setCouponCode(event.target.value)}
-                            />
-                        </div>
-
-                        <div className="mb-4">
-                            <label className="form-label">Discount</label>
-                            <input
-                                className="form-control"
-                                type="number"
-                                value={couponDiscount}
-                                onChange={(event) => setCouponDiscount(event.target.value)}
-                            />
-                        </div>
-
-
-                        <div className="d-flex justify-content-center gap-3">
-                            <button onClick={saveCoupon} className="btn btn-primary">
-                                Save Coupon
-                            </button>
-
-                            <button onClick={clearAllCoupons} className="btn btn-danger">
-                                Clear All Coupons
-                            </button>
-                        </div>
-
-
-                        <ul className="list-group mt-3 mx-auto" style={{ maxWidth: "400px" }}>
-                            {coupons.map((coupon, index) => (
-                                <li
-                                    key={index}
-                                    className="list-group-item d-flex justify-content-between align-items-center"
-                                >
-                                    <span>
-                                        {coupon.code} - {coupon.discount}%
-                                    </span>
-
-                                    <button
-                                        className="btn btn-danger btn-sm"
-                                        onClick={() => deleteCoupon(index)}
-                                    >
-                                        Delete
-                                    </button>
-                                </li>
-                            ))}
-                        </ul>
-
                     </section>
 
                 </div>
@@ -241,4 +233,4 @@ function Admin() {
     )
 }
 
-export default Admin
+export default Admin;

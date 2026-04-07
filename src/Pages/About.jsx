@@ -1,38 +1,63 @@
-import { useState } from 'react'
+import background from "../Images/aboutus.jpg";
 
 function About() {
+return (
+    <div className="container py-5">
 
-    return (
-        <div className="position-relative min-vh-100 pt-5 pb-5">
+    <div className="row align-items-center">
 
-            <img
-                src="https://static.vecteezy.com/system/resources/previews/022/252/108/non_2x/portrait-of-a-male-gamer-playing-online-games-on-a-computer-cyber-sport-concept-generative-ai-free-photo.jpg"
-                className="position-absolute top-0 start-0 w-100 h-100 object-fit-cover"
-                alt=""
-            />
+        <div className="col-md-7">
 
-            <div className="position-absolute top-0 start-0 w-100 h-100 bg-white opacity-50"></div>
+        <h1 className="fw-bold mb-4">Why Shop With Us?</h1>
 
-            <div className="container position-relative d-flex justify-content-center">
+        <hr />
 
-                <div className="bg-white p-5 rounded shadow-lg text-center" style={{ maxWidth: "800px" }}>
-                    
-                    <h1 className="fw-bolder display-4 mb-4">
-                        About Prime Gaming Supply
-                    </h1>
+            <h4 className="fw-bold mt-4">Why Shop With Us?</h4>
+        <p>
+            At Hoops Authority, we offer a wide selection of premium basketball gear including shoes, jerseys, and accessories inspired by the NBA. Our goal is to bring style, performance, and authenticity together in one place so you can represent the game on and off the court. Every product we offer is carefully selected to match the energy of basketball culture.
+        </p>
 
-                    <p className="fw-bolder display-6 mb-4">
-                        Prime Gaming Supply was created with one goal in mind: delivering high quality gaming accessories that combine performance, style, and reliability. In today’s competitive gaming environment, every detail matters. From the precision of your mouse to the comfort of your headset, the right equipment can completely change your experience. We believe gamers deserve tools that enhance their performance and give them confidence every time they sit down to play.
+        <hr />
 
-                        Prime Gaming Supply is more than just an online store. It represents innovation, modern web development, and a commitment to user focused design.
-                    </p>
+        <h4 className="fw-bold mt-4">Customer Experience</h4>
+        <p>
+            We are committed to making your experience simple and smooth. From fast shipping to responsive support, we treat every customer like part of the Hoops Authority family. Whether you're a casual fan or a serious hooper, we make sure you get what you need without the hassle.
+        </p>
 
+        <hr />
 
-                </div>
+        <h4 className="fw-bold mt-4">Reliable Quality</h4>
+        <p>
+            We stand behind everything we sell. From durable basketball shoes to high-quality jerseys and accessories, our products are built to last. Hoops Authority ensures you get gear that looks good and performs even better, whether you're playing or just repping your favorite team.
+        </p>
 
-            </div>
+        <hr />
+
+        <h4 className="fw-bold mt-4">Our Location</h4>
+        <p>
+        <a 
+        href="https://www.google.com/maps?q=San+Diego+Global+Knowledge+University+San+Diego+CA"
+        target="_blank"
+        rel="noopener noreferrer"
+            >
+        1095 K St Suite B, San Diego, CA 92101
+        </a>
+        </p>
+
         </div>
-    )
+
+        <div className="col-md-5">
+        <img
+            src={background}
+            alt="about"
+            className="img-fluid rounded shadow"
+        />
+        </div>
+
+    </div>
+
+    </div>
+);
 }
 
 export default About;

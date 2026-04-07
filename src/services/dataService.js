@@ -1,77 +1,303 @@
-import pc1 from "../Images/gamerpc1.png";
-import pc2 from "../Images/pc2.jpg";
-import pc3 from "../Images/pc3.jpg";
-
-import keyboard1 from "../Images/keyboard1.png";
-import keyboard2 from "../Images/keyboard2.png";
-import keyboard3 from "../Images/keyboard3.png";
-
-import mouse1 from "../Images/mouse1.png";
-import mouse2 from "../Images/mouse2.png";
-
 const catalog = [
-    {
-        title: "Titan X Gaming PC",
-        category: "PC",
-        price: 1800,
-        image: pc1,
-        _id: 1
-    },
-    {
-        title: "Phantom Pro Gaming PC",
-        category: "PC",
-        price: 2100,
-        image: pc2,
-        _id: 2
-    },
-    {
-        title: "Predator Xtreme Gaming PC",
-        category: "PC",
-        price: 2700,
-        image: pc3,
-        _id: 3
-    },
-    {
-        title: "Phoenix Keyboard",
-        category: "Keyboard",
-        price: 60,
-        image: keyboard1,
-        _id: 4
-    },
-    {
-        title: "AriZ Keyboard",
-        category: "Keyboard",
-        price: 65,
-        image: keyboard2,
-        _id: 5
-    },
-    {
-        title: "HJL Keyboard",
-        category: "Keyboard",
-        price: 70,
-        image: keyboard3,
-        _id: 6
-    },
-    {
-        title: "Titan Mouse",
-        category: "Mouse",
-        price: 70,
-        image: mouse1,
-        _id: 7
-    },
-    {
-        title: "GLD Mouse",
-        category: "Mouse",
-        price: 90,
-        image: mouse2,
-        _id: 8
-    },
+  {
+    title: "LeBron James Jersey",
+    category: "Jersey",
+    gender: "Unisex",
+    price: 99,
+    images: [
+      "src/Images/1.avif",
+      "src/Images/1b.avif",
+      "src/Images/1c.avif",
+      "src/Images/1d.avif"
+    ],
+    _id: 1,
+    sizes: [
+      { label: "S", stock: 0 },
+      { label: "M", stock: 100 },
+      { label: "L", stock: 0 },
+      { label: "XL", stock: 100 },
+      { label: "XXL", stock: 100 }
+    ]
+  },
+  {
+    title: "Stephen Curry Jersey",
+    category: "Jersey",
+    gender: "Unisex",
+    price: 99.99,
+    image: "src/Images/2.avif",
+    _id: 2,
+    sizes: [
+      { label: "S", stock: 100 },
+      { label: "M", stock: 100 },
+      { label: "L", stock: 100 },
+      { label: "XL", stock: 100 },
+      { label: "XXL", stock: 100 }
+    ]
+  },
+  {
+    title: "Shai Gilgeous-Alexander Jersey",
+    category: "Jersey",
+    gender: "Unisex",
+    price: 99.99,
+    image: "src/Images/3.avif",
+    _id: 3,
+    sizes: [
+      { label: "S", stock: 100 },
+      { label: "M", stock: 100 },
+      { label: "L", stock: 100 },
+      { label: "XL", stock: 100 },
+      { label: "XXL", stock: 100 }
+    ]
+  },
+  {
+    title: "Nikola Jokic Jersey",
+    category: "Jersey",
+    gender: "Unisex",
+    price: 99.99,
+    image: "src/Images/4.avif",
+    _id: 4,
+    sizes: [
+      { label: "S", stock: 100 },
+      { label: "M", stock: 100 },
+      { label: "L", stock: 100 },
+      { label: "XL", stock: 100 },
+      { label: "XXL", stock: 100 }
+    ]
+  },
+  {
+    title: "Victor Wembanyama Jersey",
+    category: "Jersey",
+    gender: "Unisex",
+    price: 99.99,
+    image: "src/Images/5.avif",
+    _id: 5,
+    sizes: [
+      { label: "S", stock: 100 },
+      { label: "M", stock: 100 },
+      { label: "L", stock: 100 },
+      { label: "XL", stock: 100 },
+      { label: "XXL", stock: 100 }
+    ]
+  },
+  {
+    title: "Anthony Edwards Jersey",
+    category: "Jersey",
+    gender: "Unisex",
+    price: 99.99,
+    image: "src/Images/6.avif",
+    _id: 6,
+    sizes: [
+      { label: "S", stock: 100 },
+      { label: "M", stock: 100 },
+      { label: "L", stock: 100 },
+      { label: "XL", stock: 100 },
+      { label: "XXL", stock: 100 }
+    ]
+  },
+  {
+    title: "Jalen Brunson Jersey",
+    category: "Jersey",
+    gender: "Unisex",
+    price: 99.99,
+    image: "src/Images/7.avif",
+    _id: 7,
+    sizes: [
+      { label: "S", stock: 100 },
+      { label: "M", stock: 100 },
+      { label: "L", stock: 100 },
+      { label: "XL", stock: 100 },
+      { label: "XXL", stock: 100 }
+    ]
+  },
+  {
+    title: "Kevin Durant Jersey",
+    category: "Jersey",
+    gender: "Unisex",
+    price: 99.99,
+    image: "src/Images/8.jpg",
+    _id: 8,
+    sizes: [
+      { label: "S", stock: 100 },
+      { label: "M", stock: 100 },
+      { label: "L", stock: 100 },
+      { label: "XL", stock: 100 },
+      { label: "XXL", stock: 100 }
+    ]
+  },
+  {
+    title: "Giannis Antetokounmpo Jersey",
+    category: "Jersey",
+    gender: "Unisex",
+    price: 99.99,
+    image: "src/Images/9.avif",
+    _id: 9,
+    sizes: [
+      { label: "S", stock: 100 },
+      { label: "M", stock: 100 },
+      { label: "L", stock: 100 },
+      { label: "XL", stock: 100 },
+      { label: "XXL", stock: 100 }
+    ]
+  },
+  {
+    title: "LeBron XXXI Elite Good Intentions",
+    category: "Shoes",
+    gender: "Men",
+    price: 235,
+    image: "src/Images/10.avif",
+    _id: 10,
+    sizes: [5,6,9,10,11,12].map(s => ({ label: s, stock: 100 }))
+  },
+  {
+    title: "Ja 3 Raptor",
+    category: "Shoes",
+    gender: "Men",
+    price: 135,
+    image: "src/Images/11.avif",
+    _id: 11,
+    sizes: [5,6,7,9,10,11,12].map(s => ({ label: s, stock: 100 }))
+  },
+  {
+    title: "Giannis Freak 7",
+    category: "Shoes",
+    gender: "Unisex",
+    price: 115,
+    image: "src/Images/12.avif",
+    _id: 12,
+    sizes: [7,8,9,11,12].map(s => ({ label: s, stock: 100 }))
+  },
+  {
+    title: "Kobe IX Elite Low",
+    category: "Shoes",
+    gender: "Unisex",
+    price: 190,
+    image: "src/Images/13.avif",
+    _id: 13,
+    sizes: [5,6,7,9,12].map(s => ({ label: s, stock: 100 }))
+  },
+  {
+    title: "Nike GT",
+    category: "Shoes",
+    gender: "Unisex",
+    price: 210,
+    image: "src/Images/14.avif",
+    _id: 14,
+    sizes: [5,6,7,8,9,10,11,12].map(s => ({ label: s, stock: 100 }))
+  },
+  {
+    title: "KD18",
+    category: "Shoes",
+    gender: "Unisex",
+    price: 155,
+    image: "src/Images/15.avif",
+    _id: 15,
+    sizes: [5,6,7,8,9,10,11,12].map(s => ({ label: s, stock: 100 }))
+  },
+  {
+    title: "Sabrina 3 Shooter",
+    category: "Shoes",
+    gender: "Women",
+    price: 120,
+    image: "src/Images/16.avif",
+    _id: 16,
+    sizes: [5,6,7,8,9,10,11,12].map(s => ({ label: s, stock: 100 }))
+  },
+  {
+    title: "LeBron Witness 9",
+    category: "Shoes",
+    gender: "Men",
+    price: 415,
+    image: "src/Images/17.avif",
+    _id: 17,
+    sizes: [5,6,7,8,9,10,11,12].map(s => ({ label: s, stock: 100 }))
+  },
+  {
+    title: "Air Jordan 40",
+    category: "Shoes",
+    gender: "Men",
+    price: 205,
+    image: "src/Images/18.avif",
+    _id: 18,
+    sizes: [5,6,7,8,9,10,11,12].map(s => ({ label: s, stock: 100 }))
+  },
+  {
+    title: "Women's Dri-FIT Quarter Socks (3 Pairs)",
+    category: "Accessories",
+    gender: "Women",
+    price: 30,
+    image: "src/Images/19.avif",
+    _id: 19
+  },
+  {
+    title: "NikeSKIMS Small Towel",
+    category: "Accessories",
+    gender: "Unisex",
+    price: 30,
+    image: "src/Images/20.avif",
+    _id: 20
+  },
+  {
+    title: "Yoga Mat Strap",
+    category: "Accessories",
+    gender: "Unisex",
+    price: 40,
+    image: "src/Images/21.avif",
+    _id: 21
+  },
+  {
+    title: "Women's Dri-FIT Pilates Grip Crew Socks (1 Pair)",
+    category: "Accessories",
+    gender: "Women",
+    price: 30,
+    image: "src/Images/22.avif",
+    _id: 22
+  },
+  {
+    title: "Carabiner Set",
+    category: "Accessories",
+    gender: "Unisex",
+    price: 20,
+    image: "src/Images/23.avif",
+    _id: 23
+  },
+  {
+    title: "Women's Keychain",
+    category: "Accessories",
+    gender: "Women",
+    price: 24,
+    image: "src/Images/24.avif",
+    _id: 24
+  },
+  {
+    title: "Clippable Pouch",
+    category: "Accessories",
+    gender: "Unisex",
+    price: 30,
+    image: "src/Images/25.avif",
+    _id: 25
+  },
+  {
+    title: "Women's Hardshell Round Case",
+    category: "Accessories",
+    gender: "Women",
+    price: 42,
+    image: "src/Images/26.avif",
+    _id: 26
+  },
+  {
+    title: "Puffer Gym Bag",
+    category: "Accessories",
+    gender: "Unisex",
+    price: 148,
+    image: "src/Images/27.avif",
+    _id: 27
+  }
 ];
 
 class DataService {
-    getProducts() {
-        return catalog;
-    }
+  getProducts() {
+    return catalog;
+  }
 }
 
 export default DataService;

@@ -1,80 +1,77 @@
-import { useState } from 'react'
-import GlobalContext from './globalContext'
+import { useState } from "react";
+import GlobalContext from "./globalContext";
 
 function GlobalProvider(props) {
-    const [user, setUser] = useState({ name: 'Leomar', id: 64 })
-    const [cart, setCart] = useState([])
 
-    function addProductToCart(product) {
-        const existingIndex = cart.findIndex(item => item._id === product._id)
+  const [user, setUser] = useState({ name: "Leomar", id: 64 });
+  const [cart, setCart] = useState([]);
+  const [coupons, setCoupons] = useState([]);
 
-        if (existingIndex !== -1) {
-            const updatedCart = [...cart]
-            updatedCart[existingIndex] = {
-                ...updatedCart[existingIndex],
-                quantity: updatedCart[existingIndex].quantity + product.quantity
-            }
-            setCart(updatedCart)
-        } else {
-            setCart([...cart, product])
-        }
+  function addCoupon(coupon) {
+    setCoupons(prev => [...prev, coupon]);
+  }
+
+  function getCoupon(code) {
+    return coupons.find(c => c.code === code);
+  }
+
+  function addProductToCart(product) {
+    let copy = [...cart];
+
+    let found = false;
+
+    for (let i = 0; i < copy.length; i++) {
+      if (copy[i]._id === product._id && copy[i].size === product.size) {
+        copy[i].quantity += product.quantity;
+        found = true;
+      }
     }
 
-    function clearCart() {
-        setCart([])
+    if (!found) {
+      copy.push(product);
     }
 
-    function removeProductFromCart(productId) {
-        const index = cart.findIndex(item => item._id === productId)
-        if (index === -1) return
+    setCart(copy);
+  }
 
-        const updatedCart = [...cart]
-        const item = updatedCart[index]
+  function removeProductFromCart(productId, size) {
+    let filtered = cart.filter(p => !(p._id === productId && p.size === size));
+    setCart(filtered);
+  }
 
-        if (item.quantity > 1) {
-            updatedCart[index] = { ...item, quantity: item.quantity - 1 }
-        } else {
-            updatedCart.splice(index, 1)
-        }
+  function setProductQuantity(productId, quantity, size) {
+    let copy = [...cart];
 
-        setCart(updatedCart)
+    for (let i = 0; i < copy.length; i++) {
+      if (copy[i]._id === productId && copy[i].size === size) {
+        copy[i].quantity = quantity;
+      }
     }
 
-    function deleteProductFromCart(productId) {
-        const updatedCart = cart.filter(item => item._id !== productId)
-        setCart(updatedCart)
-    }
+    setCart(copy);
+  }
 
-    function setProductQuantity(productId, newQty) {
-        if (!Number.isFinite(newQty)) return
-        if (newQty < 1) {
-            deleteProductFromCart(productId)
-            return
-        }
+  function clearCart() {
+    setCart([]);
+  }
 
-        const updatedCart = cart.map(item => {
-            if (item._id === productId) {
-                return { ...item, quantity: newQty }
-            }
-            return item
-        })
-
-        setCart(updatedCart)
-    }
-
-    return (
-        <GlobalContext.Provider value={{
-            user: user,
-            cart: cart,
-            addProductToCart: addProductToCart,
-            clearCart: clearCart,
-            removeProductFromCart: removeProductFromCart,
-            deleteProductFromCart: deleteProductFromCart,
-            setProductQuantity: setProductQuantity,
-        }}>
-            {props.children}
-        </GlobalContext.Provider>
-    )
+  return (
+    <GlobalContext.Provider
+      value={{
+        user,
+        cart,
+        addProductToCart,
+        removeProductFromCart,
+        setProductQuantity,
+        clearCart,
+        coupons,
+        addCoupon,
+        getCoupon
+      }}
+    >
+      {props.children}
+    </GlobalContext.Provider>
+  );
 }
 
 export default GlobalProvider;
