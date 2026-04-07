@@ -29,7 +29,9 @@ function Navbar() {
           }}
         >
           <IconUser size={18} />
-          {user.name}
+          <NavLink to="/profile" className="text-dark text-decoration-none">
+            {user.firstName} {user.lastName}
+          </NavLink>
         </div>
 
         <NavLink
@@ -137,4 +139,4 @@ function Navbar() {
   );
 }
 
-export default Navbar; 
+export default Navbar;

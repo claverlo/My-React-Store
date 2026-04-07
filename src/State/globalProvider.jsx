@@ -3,7 +3,19 @@ import GlobalContext from "./globalContext";
 
 function GlobalProvider(props) {
 
-  const [user, setUser] = useState({ name: "Leomar", id: 64 });
+  const [user, setUser] = useState({
+    firstName: "Stehpen",
+    lastName: "Curry",
+    id: 64,
+    email: "Step30@icloud.com.com",
+    address: {
+      street: "Rich people road",
+      city: "San Francisco",
+      state: "CA",
+      zip: "15326"
+    }
+  });
+
   const [cart, setCart] = useState([]);
   const [coupons, setCoupons] = useState([]);
 

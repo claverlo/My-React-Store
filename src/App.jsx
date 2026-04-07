@@ -10,6 +10,7 @@ import NotFound from "./Pages/NotFound";
 import GlobalProvider from './State/globalProvider'
 import Cart from "./Pages/Cart";
 import Checkout from "./Pages/Checkout";
+import Profile from "./Pages/Profile";
 
 
 function App() {
@@ -25,7 +26,9 @@ function App() {
         <Route path='/contact' element={<Contact />} />
         <Route path='/cart' element={<Cart/>}></Route>
         <Route path='/checkout' element={<Checkout />} />
+        <Route path="/profile" element={<Profile />} />
         <Route path='*' element={<NotFound />} />
+        
         
 
     </Routes>

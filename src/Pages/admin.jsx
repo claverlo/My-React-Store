@@ -6,6 +6,9 @@ function Admin() {
 
     const { addCoupon } = useContext(GlobalContext)
 
+    const [isAuth, setIsAuth] = useState(false)
+    const [password, setPassword] = useState("")
+
     const [couponCode, setCouponCode] = useState('')
     const [couponDiscount, setCouponDiscount] = useState(0)
     const [coupons, setCoupons] = useState([])
@@ -78,6 +81,35 @@ function Admin() {
         margin: "0 auto",
         paddingTop: "20px",
         paddingBottom: "20px"
+    }
+
+    if (!isAuth) {
+        return (
+            <div className="container mt-5 text-center">
+                <h2>Admin Login</h2>
+
+                <input
+                    type="password"
+                    className="form-control mt-3"
+                    placeholder="Enter password"
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                />
+
+                <button
+                    className="btn btn-dark mt-3"
+                    onClick={() => {
+                        if (password === "openit") {
+                            setIsAuth(true)
+                        } else {
+                            alert("Wrong password")
+                        }
+                    }}
+                >
+                    Enter
+                </button>
+            </div>
+        )
     }
 
     return (
