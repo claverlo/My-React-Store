@@ -24,9 +24,9 @@ function Profile() {
           <div className="col-lg-15">
 
             <div
-  className="card p-5 shadow-lg border-0 rounded-4 text-center mx-auto"
-  style={{ width: "100%", maxWidth: "1000px" }}
->
+              className="card p-3 shadow-lg border-0 rounded-4 text-center mx-auto"
+              style={{ width: "75%", maxWidth: "700px" }}
+            >
 
               <img
                 src={steph}
@@ -70,27 +70,15 @@ function Profile() {
                 Shipping Address
               </h5>
 
-              <div className="row text-start mt-3">
+              <div className="text-center mt-3">
 
-                <div className="col-md-6 mb-3">
-                  <strong>Street</strong>
-                  <p className="mb-0">{user.address.street}</p>
-                </div>
+                <p className="mb-1">
+                  {user.address.street}
+                </p>
 
-                <div className="col-md-6 mb-3">
-                  <strong>City</strong>
-                  <p className="mb-0">{user.address.city}</p>
-                </div>
-
-                <div className="col-md-6 mb-3">
-                  <strong>State</strong>
-                  <p className="mb-0">{user.address.state}</p>
-                </div>
-
-                <div className="col-md-6 mb-3">
-                  <strong>ZIP</strong>
-                  <p className="mb-0">{user.address.zip}</p>
-                </div>
+                <p className="mb-0">
+                  {user.address.city}, {user.address.state} {user.address.zip}
+                </p>
 
               </div>
 

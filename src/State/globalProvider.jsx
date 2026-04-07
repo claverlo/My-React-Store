@@ -9,7 +9,7 @@ function GlobalProvider(props) {
     id: 64,
     email: "Step30@icloud.com.com",
     address: {
-      street: "Rich people road",
+      street: "123 Rich People road",
       city: "San Francisco",
       state: "CA",
       zip: "15326"
