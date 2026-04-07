@@ -37,12 +37,17 @@ function Product(props) {
     }
 
     if (sizeData && sizeData.stock === 0) {
+      alert("This size is sold out");
       return;
     }
 
     let fixedProduct = { ...props.data };
     fixedProduct.quantity = quantity;
     fixedProduct.size = selectedSize;
+
+    if (sizeData) {
+      fixedProduct.stock = sizeData.stock;
+    }
 
     fixedProduct.image = Array.isArray(props.data.images)
       ? props.data.images[props.imgIndex ?? 0]

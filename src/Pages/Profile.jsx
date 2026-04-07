@@ -1,49 +1,103 @@
 import { useContext } from "react";
 import GlobalContext from "../State/globalContext";
 import steph from "../Images/stephcurry.jpg";
+import profileBg from "../Images/profile.jpg";
+import { IconMapPin } from "@tabler/icons-react";
 
 function Profile() {
   const { user } = useContext(GlobalContext);
 
   return (
-    <div className="container mt-5">
+    <div className="position-relative min-vh-100 pt-5 pb-3">
 
-      <h2 className="text-center mb-2">My Profile</h2>
-      <p className="text-center text-muted">Your personal information</p>
+      <img
+        src={profileBg}
+        className="position-absolute top-0 start-0 w-100 h-100"
+        style={{ objectFit: "cover", zIndex: 0 }}
+        alt=""
+      />
 
-      <div className="row mt-4">
+      <div className="container position-relative" style={{ zIndex: 1 }}>
 
-        <div className="col-md-4">
-          <div className="card p-4 shadow text-center">
+        <div className="row justify-content-center mt-5">
 
-            <img
-              src={steph}
-              className="rounded-circle mx-auto mb-3"
-              style={{ width: "150px", height: "150px", objectFit: "cover" }}
-            />
+          <div className="col-lg-15">
 
-            <h5>{user.firstName} {user.lastName}</h5>
-            <p className="text-muted">{user.email}</p>
+            <div
+  className="card p-5 shadow-lg border-0 rounded-4 text-center mx-auto"
+  style={{ width: "100%", maxWidth: "1000px" }}
+>
 
-            <button className="btn btn-outline-primary mt-2">
-              Edit Profile
-            </button>
+              <img
+                src={steph}
+                className="rounded-circle mx-auto mb-3"
+                style={{ width: "100px", height: "100px", objectFit: "cover" }}
+              />
+
+              <h4 className="mb-1">Stephen Curry</h4>
+              <p className="text-muted mb-1">{user.email}</p>
+
+              <h6 className="text-primary fw-bold mb-3">Premium Member</h6>
+
+              <div className="mb-4">
+                <h6 className="mb-0">12 Orders</h6>
+              </div>
+
+              <hr />
+
+              <p className="mb-1 fw-semibold">
+                Signed in as <span className="text-dark">Steph30</span>
+              </p>
+              <p className="text-muted small mb-3">{user.email}</p>
+
+              <div className="d-flex justify-content-center gap-3 mb-4">
+                <span className="text-primary" style={{ cursor: "pointer" }}>
+                  Switch Account
+                </span>
+                <span className="text-danger" style={{ cursor: "pointer" }}>
+                  Sign Out
+                </span>
+              </div>
+
+              <button className="btn btn-dark w-50 mx-auto mb-4">
+                Edit Profile
+              </button>
+
+              <hr />
+
+              <h5 className="mb-3 d-flex align-items-center justify-content-center gap-2">
+                <IconMapPin size={20} />
+                Shipping Address
+              </h5>
+
+              <div className="row text-start mt-3">
+
+                <div className="col-md-6 mb-3">
+                  <strong>Street</strong>
+                  <p className="mb-0">{user.address.street}</p>
+                </div>
+
+                <div className="col-md-6 mb-3">
+                  <strong>City</strong>
+                  <p className="mb-0">{user.address.city}</p>
+                </div>
+
+                <div className="col-md-6 mb-3">
+                  <strong>State</strong>
+                  <p className="mb-0">{user.address.state}</p>
+                </div>
+
+                <div className="col-md-6 mb-3">
+                  <strong>ZIP</strong>
+                  <p className="mb-0">{user.address.zip}</p>
+                </div>
+
+              </div>
+
+            </div>
 
           </div>
-        </div>
 
-        <div className="col-md-8">
-          <div className="card p-4 shadow text-center">
-
-            <h5 className="mb-3">Shipping Address</h5>
-            <hr />
-
-            <p><strong>Street:</strong> {user.address.street}</p>
-            <p><strong>City:</strong> {user.address.city}</p>
-            <p><strong>State:</strong> {user.address.state}</p>
-            <p><strong>ZIP:</strong> {user.address.zip}</p>
-
-          </div>
         </div>
 
       </div>

@@ -139,6 +139,7 @@ const catalog = [
       { label: "XXL", stock: 100 }
     ]
   },
+
   {
     title: "LeBron XXXI Elite Good Intentions",
     category: "Shoes",
@@ -146,7 +147,16 @@ const catalog = [
     price: 235,
     image: "src/Images/10.avif",
     _id: 10,
-    sizes: [5,6,9,10,11,12].map(s => ({ label: s, stock: 100 }))
+    sizes: [
+      { label: 5, stock: 100 },
+      { label: 6, stock: 100 },
+      { label: 7, stock: 0 },
+      { label: 8, stock: 0 },
+      { label: 9, stock: 100 },
+      { label: 10, stock: 0 },
+      { label: 11, stock: 100 },
+      { label: 12, stock: 100 }
+    ]
   },
   {
     title: "Ja 3 Raptor",
@@ -155,7 +165,16 @@ const catalog = [
     price: 135,
     image: "src/Images/11.avif",
     _id: 11,
-    sizes: [5,6,7,9,10,11,12].map(s => ({ label: s, stock: 100 }))
+    sizes: [
+      { label: 5, stock: 100 },
+      { label: 6, stock: 100 },
+      { label: 7, stock: 100 },
+      { label: 8, stock: 100 },
+      { label: 9, stock: 100 },
+      { label: 10, stock: 100 },
+      { label: 11, stock: 100 },
+      { label: 12, stock: 100 }
+    ]
   },
   {
     title: "Giannis Freak 7",
@@ -164,7 +183,16 @@ const catalog = [
     price: 115,
     image: "src/Images/12.avif",
     _id: 12,
-    sizes: [7,8,9,11,12].map(s => ({ label: s, stock: 100 }))
+    sizes: [
+      { label: 5, stock: 100 },
+      { label: 6, stock: 0 },
+      { label: 7, stock: 100 },
+      { label: 8, stock: 0 },
+      { label: 9, stock: 100 },
+      { label: 10, stock: 100 },
+      { label: 11, stock: 100 },
+      { label: 12, stock: 0 }
+    ]
   },
   {
     title: "Kobe IX Elite Low",
@@ -173,7 +201,16 @@ const catalog = [
     price: 190,
     image: "src/Images/13.avif",
     _id: 13,
-    sizes: [5,6,7,9,12].map(s => ({ label: s, stock: 100 }))
+    sizes: [
+      { label: 5, stock: 100 },
+      { label: 6, stock: 100 },
+      { label: 7, stock: 0 },
+      { label: 8, stock: 100 },
+      { label: 9, stock: 100 },
+      { label: 10, stock: 0 },
+      { label: 11, stock: 100 },
+      { label: 12, stock: 0 }
+    ]
   },
   {
     title: "Nike GT",
@@ -182,7 +219,16 @@ const catalog = [
     price: 210,
     image: "src/Images/14.avif",
     _id: 14,
-    sizes: [5,6,7,8,9,10,11,12].map(s => ({ label: s, stock: 100 }))
+    sizes: [
+      { label: 5, stock: 0 },
+      { label: 6, stock: 100 },
+      { label: 7, stock: 100 },
+      { label: 8, stock: 0 },
+      { label: 9, stock: 100 },
+      { label: 10, stock: 100 },
+      { label: 11, stock: 0 },
+      { label: 12, stock: 100 }
+    ]
   },
   {
     title: "KD18",
@@ -191,7 +237,16 @@ const catalog = [
     price: 155,
     image: "src/Images/15.avif",
     _id: 15,
-    sizes: [5,6,7,8,9,10,11,12].map(s => ({ label: s, stock: 100 }))
+    sizes: [
+      { label: 5, stock: 100 },
+      { label: 6, stock: 100 },
+      { label: 7, stock: 100 },
+      { label: 8, stock: 100 },
+      { label: 9, stock: 100 },
+      { label: 10, stock: 100 },
+      { label: 11, stock: 100 },
+      { label: 12, stock: 100 }
+    ]
   },
   {
     title: "Sabrina 3 Shooter",
@@ -200,7 +255,16 @@ const catalog = [
     price: 120,
     image: "src/Images/16.avif",
     _id: 16,
-    sizes: [5,6,7,8,9,10,11,12].map(s => ({ label: s, stock: 100 }))
+    sizes: [
+      { label: 5, stock: 100 },
+      { label: 6, stock: 100 },
+      { label: 7, stock: 100 },
+      { label: 8, stock: 100 },
+      { label: 9, stock: 100 },
+      { label: 10, stock: 100 },
+      { label: 11, stock: 100 },
+      { label: 12, stock: 100 }
+    ]
   },
   {
     title: "LeBron Witness 9",
@@ -209,7 +273,16 @@ const catalog = [
     price: 415,
     image: "src/Images/17.avif",
     _id: 17,
-    sizes: [5,6,7,8,9,10,11,12].map(s => ({ label: s, stock: 100 }))
+    sizes: [
+      { label: 5, stock: 100 },
+      { label: 6, stock: 100 },
+      { label: 7, stock: 100 },
+      { label: 8, stock: 100 },
+      { label: 9, stock: 100 },
+      { label: 10, stock: 100 },
+      { label: 11, stock: 100 },
+      { label: 12, stock: 100 }
+    ]
   },
   {
     title: "Air Jordan 40",
@@ -218,8 +291,18 @@ const catalog = [
     price: 205,
     image: "src/Images/18.avif",
     _id: 18,
-    sizes: [5,6,7,8,9,10,11,12].map(s => ({ label: s, stock: 100 }))
+    sizes: [
+      { label: 5, stock: 100 },
+      { label: 6, stock: 100 },
+      { label: 7, stock: 100 },
+      { label: 8, stock: 100 },
+      { label: 9, stock: 100 },
+      { label: 10, stock: 100 },
+      { label: 11, stock: 100 },
+      { label: 12, stock: 100 }
+    ]
   },
+
   {
     title: "Women's Dri-FIT Quarter Socks (3 Pairs)",
     category: "Accessories",
@@ -244,54 +327,87 @@ const catalog = [
     image: "src/Images/21.avif",
     _id: 21
   },
-  {
-    title: "Women's Dri-FIT Pilates Grip Crew Socks (1 Pair)",
-    category: "Accessories",
-    gender: "Women",
-    price: 30,
-    image: "src/Images/22.avif",
-    _id: 22
-  },
-  {
-    title: "Carabiner Set",
-    category: "Accessories",
-    gender: "Unisex",
-    price: 20,
-    image: "src/Images/23.avif",
-    _id: 23
-  },
-  {
-    title: "Women's Keychain",
-    category: "Accessories",
-    gender: "Women",
-    price: 24,
-    image: "src/Images/24.avif",
-    _id: 24
-  },
-  {
-    title: "Clippable Pouch",
-    category: "Accessories",
-    gender: "Unisex",
-    price: 30,
-    image: "src/Images/25.avif",
-    _id: 25
-  },
-  {
-    title: "Women's Hardshell Round Case",
-    category: "Accessories",
-    gender: "Women",
-    price: 42,
-    image: "src/Images/26.avif",
-    _id: 26
-  },
-  {
-    title: "Puffer Gym Bag",
-    category: "Accessories",
-    gender: "Unisex",
-    price: 148,
-    image: "src/Images/27.avif",
-    _id: 27
-  }
+{
+  title: "Women's Dri-FIT Quarter Socks (3 Pairs)",
+  category: "Accessories",
+  gender: "Women",
+  price: 30,
+  image: "src/Images/19.avif",
+  _id: 19,
+  sizes: [{ label: "One Size", stock: 100 }]
+},
+{
+  title: "NikeSKIMS Small Towel",
+  category: "Accessories",
+  gender: "Unisex",
+  price: 30,
+  image: "src/Images/20.avif",
+  _id: 20,
+  sizes: [{ label: "One Size", stock: 100 }]
+},
+{
+  title: "Yoga Mat Strap",
+  category: "Accessories",
+  gender: "Unisex",
+  price: 40,
+  image: "src/Images/21.avif",
+  _id: 21,
+  sizes: [{ label: "One Size", stock: 100 }]
+},
+{
+  title: "Women's Dri-FIT Pilates Grip Crew Socks (1 Pair)",
+  category: "Accessories",
+  gender: "Women",
+  price: 30,
+  image: "src/Images/22.avif",
+  _id: 22,
+  sizes: [{ label: "One Size", stock: 100 }]
+},
+{
+  title: "Carabiner Set",
+  category: "Accessories",
+  gender: "Unisex",
+  price: 20,
+  image: "src/Images/23.avif",
+  _id: 23,
+  sizes: [{ label: "One Size", stock: 100 }]
+},
+{
+  title: "Women's Keychain",
+  category: "Accessories",
+  gender: "Women",
+  price: 24,
+  image: "src/Images/24.avif",
+  _id: 24,
+  sizes: [{ label: "One Size", stock: 100 }]
+},
+{
+  title: "Clippable Pouch",
+  category: "Accessories",
+  gender: "Unisex",
+  price: 30,
+  image: "src/Images/25.avif",
+  _id: 25,
+  sizes: [{ label: "One Size", stock: 100 }]
+},
+{
+  title: "Women's Hardshell Round Case",
+  category: "Accessories",
+  gender: "Women",
+  price: 42,
+  image: "src/Images/26.avif",
+  _id: 26,
+  sizes: [{ label: "One Size", stock: 100 }]
+},
+{
+  title: "Puffer Gym Bag",
+  category: "Accessories",
+  gender: "Unisex",
+  price: 148,
+  image: "src/Images/27.avif",
+  _id: 27,
+  sizes: [{ label: "One Size", stock: 100 }]
+}
 ];
 
 class DataService {

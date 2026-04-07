@@ -34,11 +34,28 @@ function QuantityPicker(props) {
     }
 
     return (
-        <div className='d-flex justify-content-center align-items-center gap-2'>
+        <div className='position-relative d-flex justify-content-center align-items-center gap-2'>
+
+            {props.soldOut && (
+                <span
+                    style={{
+                        position: "absolute",
+                        top: "-10px",
+                        right: "-10px",
+                        background: "red",
+                        color: "white",
+                        fontSize: "10px",
+                        padding: "3px 6px",
+                        borderRadius: "6px",
+                        fontWeight: "bold"
+                    }}
+                >
+                    SOLD OUT
+                </span>
+            )}
 
             <style>
                 {`
-                /* REMOVE NUMBER INPUT ARROWS */
                 input[type=number]::-webkit-inner-spin-button,
                 input[type=number]::-webkit-outer-spin-button {
                     -webkit-appearance: none;
@@ -54,7 +71,7 @@ function QuantityPicker(props) {
             <button
                 className="btn-minus btn btn-outline-dark"
                 onClick={handleDecrease}
-                disabled={quantity <= 1}
+                disabled={quantity <= 1 || props.soldOut}
             >
                 -
             </button>
@@ -66,11 +83,13 @@ function QuantityPicker(props) {
                 className="form-control text-center"
                 style={{ width: "70px" }}
                 min="1"
+                disabled={props.soldOut}
             />
 
             <button
                 className="btn-plus btn btn-outline-dark"
                 onClick={handleIncrease}
+                disabled={props.soldOut}
             >
                 +
             </button>

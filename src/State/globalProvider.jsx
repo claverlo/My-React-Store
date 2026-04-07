@@ -28,6 +28,11 @@ function GlobalProvider(props) {
   }
 
   function addProductToCart(product) {
+    if (product.stock === 0) {
+      alert("This size is sold out");
+      return;
+    }
+
     let copy = [...cart];
 
     let found = false;
