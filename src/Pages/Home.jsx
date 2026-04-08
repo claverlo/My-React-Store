@@ -1,6 +1,7 @@
 import background from "../Images/background.jpg";
 import video from "../Images/mainvideo.mp4";
 import nikeVideo from "../Images/nikeshoe.mp4";
+import playoff from "../Images/playoff.jpg";
 import { useNavigate } from "react-router-dom";
 import { useState, useRef } from "react";
 
@@ -24,7 +25,7 @@ function Home() {
     { img: "src/Images/10.avif", label: "SHOES" },
     { img: "src/Images/1.avif", label: "JERSEYS" },
     { img: "src/Images/15.avif", label: "COLLECTIBLES" },
-    { img: "src/Images/14.avif", label: "SALES" },
+    { img: "src/Images/14.avif", label: "ON SALE" },
     { img: "src/Images/19.avif", label: "ACCESSORIES" },
     { img: "src/Images/hat1.avif", label: "HATS" }
   ];
@@ -53,6 +54,10 @@ function Home() {
           .blink-img:hover {
             transform: scale(1.08);
             filter: brightness(1.2);
+          }
+
+          .blink-text {
+            animation: blinkRed 4s infinite;
           }
 
           .arrow {
@@ -164,6 +169,29 @@ function Home() {
         />
       </div>
 
+      <a
+        href="https://www.nba.com/playoff-picture"
+        target="_blank"
+        rel="noopener noreferrer"
+        style={{ textDecoration: "none" }}
+      >
+        <div
+          className="blink-text"
+          style={{
+            background: "#000",
+            color: "white",
+            textAlign: "center",
+            padding: "20px",
+            fontSize: "1.5rem",
+            fontWeight: "700",
+            marginBottom: "2px",
+            cursor: "pointer"
+          }}
+        >
+          FOR THE NBA PLAYOFF SCHEDULE CLICK HERE
+        </div>
+      </a>
+
       <div
         style={{
           background: "#fff",
@@ -199,6 +227,26 @@ function Home() {
                   borderRadius: "2px"
                 }}
               />
+
+              {item.label === "ON SALE" && (
+                <div
+                  style={{
+                    position: "absolute",
+                    top: "8px",
+                    left: "8px",
+                    background: "red",
+                    color: "white",
+                    padding: "4px 10px",
+                    fontSize: "0.8rem",
+                    fontWeight: "700",
+                    borderRadius: "4px",
+                    zIndex: 2
+                  }}
+                >
+                  Up to 90% OFF
+                </div>
+              )}
+
               <div
                 style={{
                   position: "absolute",
