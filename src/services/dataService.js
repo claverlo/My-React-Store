@@ -309,105 +309,81 @@ const catalog = [
     gender: "Women",
     price: 30,
     image: "src/Images/19.avif",
-    _id: 19
+    _id: 19,
+    sizes: [{ label: "One Size", stock: 100 }]
   },
   {
     title: "NikeSKIMS Small Towel",
     category: "Accessories",
-    gender: "Unisex",
+    gender: "Women",
     price: 30,
     image: "src/Images/20.avif",
-    _id: 20
+    _id: 20,
+    sizes: [{ label: "One Size", stock: 100 }]
   },
   {
     title: "Yoga Mat Strap",
     category: "Accessories",
-    gender: "Unisex",
+    gender: "Women",
     price: 40,
     image: "src/Images/21.avif",
-    _id: 21
+    _id: 21,
+    sizes: [{ label: "One Size", stock: 100 }]
   },
-{
-  title: "Women's Dri-FIT Quarter Socks (3 Pairs)",
-  category: "Accessories",
-  gender: "Women",
-  price: 30,
-  image: "src/Images/19.avif",
-  _id: 19,
-  sizes: [{ label: "One Size", stock: 100 }]
-},
-{
-  title: "NikeSKIMS Small Towel",
-  category: "Accessories",
-  gender: "Unisex",
-  price: 30,
-  image: "src/Images/20.avif",
-  _id: 20,
-  sizes: [{ label: "One Size", stock: 100 }]
-},
-{
-  title: "Yoga Mat Strap",
-  category: "Accessories",
-  gender: "Unisex",
-  price: 40,
-  image: "src/Images/21.avif",
-  _id: 21,
-  sizes: [{ label: "One Size", stock: 100 }]
-},
-{
-  title: "Women's Dri-FIT Pilates Grip Crew Socks (1 Pair)",
-  category: "Accessories",
-  gender: "Women",
-  price: 30,
-  image: "src/Images/22.avif",
-  _id: 22,
-  sizes: [{ label: "One Size", stock: 100 }]
-},
-{
-  title: "Carabiner Set",
-  category: "Accessories",
-  gender: "Unisex",
-  price: 20,
-  image: "src/Images/23.avif",
-  _id: 23,
-  sizes: [{ label: "One Size", stock: 100 }]
-},
-{
-  title: "Women's Keychain",
-  category: "Accessories",
-  gender: "Women",
-  price: 24,
-  image: "src/Images/24.avif",
-  _id: 24,
-  sizes: [{ label: "One Size", stock: 100 }]
-},
-{
-  title: "Clippable Pouch",
-  category: "Accessories",
-  gender: "Unisex",
-  price: 30,
-  image: "src/Images/25.avif",
-  _id: 25,
-  sizes: [{ label: "One Size", stock: 100 }]
-},
-{
-  title: "Women's Hardshell Round Case",
-  category: "Accessories",
-  gender: "Women",
-  price: 42,
-  image: "src/Images/26.avif",
-  _id: 26,
-  sizes: [{ label: "One Size", stock: 100 }]
-},
-{
-  title: "Puffer Gym Bag",
-  category: "Accessories",
-  gender: "Unisex",
-  price: 148,
-  image: "src/Images/27.avif",
-  _id: 27,
-  sizes: [{ label: "One Size", stock: 100 }]
-}
+  {
+    title: "Women's Dri-FIT Pilates Grip Crew Socks (1 Pair)",
+    category: "Accessories",
+    gender: "Women",
+    price: 30,
+    image: "src/Images/22.avif",
+    _id: 22,
+    sizes: [{ label: "One Size", stock: 100 }]
+  },
+  {
+    title: "Carabiner Set",
+    category: "Accessories",
+    gender: "Women",
+    price: 20,
+    image: "src/Images/23.avif",
+    _id: 23,
+    sizes: [{ label: "One Size", stock: 100 }]
+  },
+  {
+    title: "Women's Keychain",
+    category: "Accessories",
+    gender: "Women",
+    price: 24,
+    image: "src/Images/24.avif",
+    _id: 24,
+    sizes: [{ label: "One Size", stock: 100 }]
+  },
+  {
+    title: "Clippable Pouch",
+    category: "Accessories",
+    gender: "Women",
+    price: 30,
+    image: "src/Images/25.avif",
+    _id: 25,
+    sizes: [{ label: "One Size", stock: 100 }]
+  },
+  {
+    title: "Women's Hardshell Round Case",
+    category: "Accessories",
+    gender: "Women",
+    price: 42,
+    image: "src/Images/26.avif",
+    _id: 26,
+    sizes: [{ label: "One Size", stock: 100 }]
+  },
+  {
+    title: "Puffer Gym Bag",
+    category: "Women",
+    gender: "Unisex",
+    price: 148,
+    image: "src/Images/27.avif",
+    _id: 27,
+    sizes: [{ label: "One Size", stock: 100 }]
+  }
 ];
 
 class DataService {

@@ -17,7 +17,14 @@ function Cart() {
   return (
     <div className="bg-light p-4" style={{ minHeight: "100vh" }}>
 
-      <div className="d-flex justify-content-end mb-3">
+      <div className="d-flex justify-content-end gap-2 mb-3 ">
+        <button
+          className="btn btn-success"
+          onClick={() => navigate("/catalog")}
+        >
+          Continue Shopping
+        </button>
+
         <button
           className="btn btn-danger"
           onClick={() => {

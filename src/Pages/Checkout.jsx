@@ -1,10 +1,12 @@
 import { useContext, useState } from "react";
 import GlobalContext from "../State/globalContext";
+import { useNavigate } from "react-router-dom";
 
 function Checkout() {
   const { cart, getCoupon } = useContext(GlobalContext);
   const [discount, setDiscount] = useState("");
   const [discountValue, setDiscountValue] = useState(0);
+  const navigate = useNavigate();
 
   const TAX_RATE = 0.08;
 
@@ -36,10 +38,13 @@ function Checkout() {
   return (
     <div className="container mt-5">
 
-      <div className="d-flex justify-content-end mb-2">
-        <a href="/catalog" className="text-decoration-none">
-          ← Continue Shopping
-        </a>
+    <div className="d-flex justify-content-between mb-3">
+        <button
+          className="btn btn-success"
+          onClick={() => navigate("/catalog")}
+        >
+          Continue Shopping
+        </button>
       </div>
 
       <h2 className="text-center mb-4">Checkout</h2>

@@ -4,7 +4,7 @@ import GlobalContext from "./globalContext";
 function GlobalProvider(props) {
 
   const [user, setUser] = useState({
-    firstName: "Stehpen",
+    firstName: "Stephen",
     lastName: "Curry",
     id: 64,
     email: "Step30@icloud.com.com",
