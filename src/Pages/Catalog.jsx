@@ -1,11 +1,15 @@
 import Product from "../components/Products";
 import DataService from "../services/dataService";
 import { useEffect, useState } from "react";
+import { useLocation } from "react-router-dom";
 import catalogjersey from "../Images/catalogjersey.jpg";
 import catlogshoes from "../Images/catlogshoes.jpg";
 import catalogaccesories from "../Images/catalogaccesories.jpg";
 
+
 function Catalog() {
+  const location = useLocation();
+
   const [products, setProducts] = useState([]);
   const [categories, setCategories] = useState([]);
   const [prodsToDisplay, setProdsToDisplay] = useState([]);
@@ -24,6 +28,21 @@ function Catalog() {
   useEffect(() => {
     loadCatalog();
   }, []);
+
+  useEffect(() => {
+    const params = new URLSearchParams(location.search);
+    const categoryFromUrl = params.get("category");
+
+    if (categoryFromUrl) {
+      setSelectedCategory(categoryFromUrl);
+    }
+  }, [location.search]);
+
+  useEffect(() => {
+    if (selectedCategory) {
+      applyFilters(selectedCategory, selectedGender, selectedSize);
+    }
+  }, [selectedCategory]);
 
   function loadCatalog() {
     const service = new DataService();

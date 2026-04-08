@@ -99,7 +99,7 @@ function Admin() {
                 <button
                     className="btn btn-dark mt-3"
                     onClick={() => {
-                        if (password === "openit") {
+                        if (password === "") {
                             setIsAuth(true)
                         } else {
                             alert("Wrong password")
